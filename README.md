@@ -36,7 +36,8 @@ Zapoznaj się z oficjalną dokumentacją dostępną na [docs.eigenlayer.xyz/oper
      ```bash
      docker --version
      ```
-   
+   ![Alt text](images/1.png)
+
     
 4. Zainstaluj Docker-Compose:
 
@@ -46,6 +47,8 @@ Zapoznaj się z oficjalną dokumentacją dostępną na [docs.eigenlayer.xyz/oper
 
    docker-compose --version
    ```
+   ![Alt text](images/2.png)
+
 
 5. Zainstaluj GO:
 
@@ -72,6 +75,7 @@ Zapoznaj się z oficjalną dokumentacją dostępną na [docs.eigenlayer.xyz/oper
      ```bash
      go version
      ```
+   ![Alt text](images/3.png)
 
 ## Instalacja EigenLayer CLI
 
@@ -83,6 +87,8 @@ Zapoznaj się z oficjalną dokumentacją dostępną na [docs.eigenlayer.xyz/oper
    mkdir -p build
    go build -o build/eigenlayer cmd/eigenlayer/main.go
    ```
+   ![Alt text](images/4.png)
+
 
 2. Skopiuj plik do systemu:
 
@@ -95,7 +101,8 @@ Zapoznaj się z oficjalną dokumentacją dostępną na [docs.eigenlayer.xyz/oper
      ```bash
      eigenlayer
      ```
-
+   ![Alt text](images/5.png)
+   
 ## Generowanie Kluczy
 
 1. Generuj klucze prywatne ECDSA i BLS za pomocą CLI. Zapisz je w bezpiecznym miejscu. `<YOUR_NAME>` zastąp wybraną nazwą.
@@ -104,6 +111,7 @@ Zapoznaj się z oficjalną dokumentacją dostępną na [docs.eigenlayer.xyz/oper
    eigenlayer operator keys create --key-type ecdsa <YOUR_NAME>
    eigenlayer operator keys create --key-type bls <YOUR_NAME>
    ```
+   ![Alt text](images/6.png)
 
    - Aby sprawdzić klucze publiczne:
 
@@ -128,14 +136,12 @@ Zapoznaj się z oficjalną dokumentacją dostępną na [docs.eigenlayer.xyz/oper
      "name": "<OPERATOR_NAME>",
      "website": "<WEBSITE>",
      "description": "<DESCRIPTION>",
-     "logo
-
-": "<LOGO_URL>",
+     "logo": "<LOGO_URL>",
      "twitter": "<TWITTER_HANDLE>"
    }
    ```
 
-3. Edytuj plik `operator.yaml`, wklejając URL do Twojego pliku `metadata.json` na GitHubie i uzupełniając pozostałe dane:
+3. Edytuj plik `operator.yaml`, wklejając RAW URL do Twojego pliku `metadata.json` na GitHubie i uzupełniając pozostałe dane:
 
    ```bash
     nano operator.yaml
@@ -174,6 +180,8 @@ po edycji naciskamy CRTL+X, następnie Y, a na koniec ENTER
    ```bash
    eigenlayer operator status operator.yaml
    ```
+
+   ![Alt text](images/7.png)
 
    Status można również sprawdzić na stronie [Goerli EigenLayer Operator](https://goerli.eigenlayer.xyz/operator).
 
