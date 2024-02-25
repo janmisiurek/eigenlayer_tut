@@ -13,7 +13,7 @@ Zapoznaj się z oficjalną dokumentacją dostępną na [docs.eigenlayer.xyz/oper
 ### Konfiguracja Serwera
 
 1. Potrzebujemy serwera do uruchomienia noda. VPS od [Contabo](https://contabo.com/en/vps/) będzie odpowiedni.
-   - Zalecany wybór to **CLOUD VPS 2** z **400 GB/SDD** dla Storage Type oraz **Docker** jako Image.
+   - Zalecany wybór to **CLOUD VPS 2** z **400 GB/SDD** dla Storage Type oraz **Ubuntu 20.04** jako Image.
 
 ### Przygotowanie Serwera
 
