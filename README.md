@@ -10,13 +10,13 @@ Możesz zapoznać się z oficjalną dokumentacją dostępną na [docs.eigenlayer
 
 ## To jakieś czary?
 
-Te instrukcje wymagają pewien poziom umiejętności obsługi komputera za pomocą terminala/wiersza poleceń. Jeśli wydaje się to dla Ciebie zbyt skomplikowane, mogę zająć się tym procesem za Ciebie. Oczywiście w zamian za wirtualne szekle - 95 usdt/c, a w cenie:
+Te instrukcje wymagają pewien poziom umiejętności obsługi komputera za pomocą terminala/wiersza poleceń. Jeśli wydaje się to dla Ciebie zbyt skomplikowane, mogę zająć się tym procesem za Ciebie. Oczywiście w zamian za wirtualne szekle - 95 USDC/C, a w cenie:
 
-- postawienie serwera - potrzeba udostępnienia wyrtualnej karty płatniczej (mogę też przprowadzić przez proces na Contabo)
-- konfiguracja serwera - potrzebne dane do logowania ssh (w przypadku pominięcia pierszego punktu)
+- postawienie serwera - potrzeba udostępnienia wirtualnej karty płatniczej (mogę też przprowadzić przez proces na Contabo)
+- konfiguracja serwera - potrzebne dane do logowania ssh (w przypadku pominięcia pierwszego punktu)
 - instalacja i rejestracja operatora - potrzebne dane do uzupełniania pliku `metadata.json`
 
-Jeśłi jesteś zainteresowany zapraszam do kontaktu - **jan.misiurek@gmail.com**
+Jeśli jesteś zainteresowany zapraszam do kontaktu - **jan.misiurek@gmail.com**
 
 # INSTRUKCJE
 
