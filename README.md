@@ -6,7 +6,19 @@ Przewodnik ten krok po kroku przeprowadzi Cię przez proces stania się operator
 
 ## Oficjalna Dokumentacja
 
-Zapoznaj się z oficjalną dokumentacją dostępną na [docs.eigenlayer.xyz/operator-guides/operator-installation/](https://docs.eigenlayer.xyz/operator-guides/operator-installation/).
+Możesz zapoznać się z oficjalną dokumentacją dostępną na [docs.eigenlayer.xyz/operator-guides/operator-installation/](https://docs.eigenlayer.xyz/operator-guides/operator-installation/).
+
+## To jakieś czary?
+
+Te instrukcje wymagają pewien poziom umiejętności obsługi komputera za pomocą terminala/wiersza poleceń. Jeśli wydaje się to dla Ciebie zbyt skomplikowane, mogę zająć się tym procesem za Ciebie. Oczywiście w zamian za wirtualne szekle - 95 usdt/c, a w cenie:
+
+- postawienie serwera - potrzeba udostępnienia wyrtualnej karty płatniczej (mogę też przprowadzić przez proces na Contabo)
+- konfiguracja serwera - potrzebne dane do logowania ssh (w przypadku pominięcia pierszego punktu)
+- instalacja i rejestracja operatora - potrzebne dane do uzupełniania pliku `metadata.json`
+
+Jeśłi jesteś zainteresowany zapraszam do kontaktu - **jan.misiurek@gmail.com**
+
+# INSTRUKCJE
 
 ## Wymagania Wstępne
 
@@ -129,7 +141,7 @@ Zapoznaj się z oficjalną dokumentacją dostępną na [docs.eigenlayer.xyz/oper
 
    - Jeśli wybierzesz opcję `yes`, Eigen zapyta o kilka danych do wstępnej konfiguracji.
 
-2. Na GitHubie utwórz nowe repozytorium (koniecznie publiczne) i stwórz plik `metadata.json` z poniższym szablonem:
+2. Opublikuj plik `metadata.json`, aby zapewnić jego dostęp dla EigenLayer. Możesz wykorzystać GitHubi - utwórz nowe repozytorium (koniecznie publiczne) i stwórz w nim plik `metadata.json`. Są też inne opcje dohostingu jak np. Pastebin. Poniższy schemat uzupełniij swoimi danymi:
 
    ```json
    {
@@ -141,7 +153,7 @@ Zapoznaj się z oficjalną dokumentacją dostępną na [docs.eigenlayer.xyz/oper
    }
    ```
 
-3. Edytuj plik `operator.yaml`, wklejając RAW URL do Twojego pliku `metadata.json` na GitHubie i uzupełniając pozostałe dane:
+3. Edytuj plik `operator.yaml`, wklejając RAW URL do Twojego pliku `metadata.json` i uzupełniając pozostałe dane:
 
    ```bash
     nano operator.yaml
