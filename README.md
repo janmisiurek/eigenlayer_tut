@@ -12,7 +12,7 @@ Możesz zapoznać się z oficjalną dokumentacją dostępną na [docs.eigenlayer
 
 Te instrukcje wymagają pewien poziom umiejętności obsługi komputera za pomocą terminala/wiersza poleceń. Jeśli wydaje się to dla Ciebie zbyt skomplikowane, mogę zająć się tym procesem za Ciebie. Oczywiście w zamian za wirtualne szekle - 95 USDC/C, a w cenie:
 
-- postawienie serwera - potrzeba udostępnienia wirtualnej karty płatniczej (mogę też przprowadzić przez proces na Contabo)
+- postawienie serwera - potrzeba udostępnienia wirtualnej karty płatniczej, z małym limitem transakcyjnym, na pokrycie kosztów serwera. Mogę też przeprowadzić przez proces zakładania serwera na Contabo (kosztuje to dodatkowe 45 usdc) 
 - konfiguracja serwera - potrzebne dane do logowania ssh (w przypadku pominięcia pierwszego punktu)
 - instalacja i rejestracja operatora - potrzebne dane do uzupełniania pliku `metadata.json`
 
