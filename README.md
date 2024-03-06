@@ -16,8 +16,9 @@ Te instrukcje wymagają pewien poziom umiejętności obsługi komputera za pomoc
 - konfiguracja serwera - potrzebne dane do logowania ssh (w przypadku pominięcia pierwszego punktu)
 - instalacja i rejestracja operatora - potrzebne dane do uzupełniania pliku `metadata.json`
 
-Jeśli jesteś zainteresowany zapraszam do kontaktu - **jan.misiurek@gmail.com**
-
+Jeśli jesteś zainteresowany zapraszam do kontaktu: 
+- email: **jan.misiurek@gmail.com**
+- telegram: **@misiurr**
 # INSTRUKCJE
 
 ## Wymagania Wstępne
