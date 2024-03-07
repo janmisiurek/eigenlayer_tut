@@ -16,7 +16,7 @@ Te instrukcje wymagają pewien poziom umiejętności obsługi komputera za pomoc
 - konfiguracja serwera - potrzebne dane do logowania ssh (w przypadku pominięcia pierwszego punktu)
 - instalacja i rejestracja operatora - potrzebne dane do uzupełniania pliku `metadata.json`
 
-Jeśli jesteś zainteresowany zapraszam do kontaktu: 
+Jeśli jesteś zainteresowany/a postawieniem tego noda za Ciebie to zapraszam do kontaktu: 
 - telegram: **@misiurr**
   
 # INSTRUKCJE
