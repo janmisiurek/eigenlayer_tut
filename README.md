@@ -1,8 +1,6 @@
+# Przewodnik Uruchomienia Operatora EigenLayer na Testnecie Holesky
 
-
-# Przewodnik Uruchomienia Operatora EigenLayer na Testnecie Goerli
-
-Przewodnik ten krok po kroku przeprowadzi Cię przez proces stania się operatorem na testnecie Goerli dla EigenLayer.
+Przewodnik ten krok po kroku przeprowadzi Cię przez proces stania się operatorem na testnecie Holesky dla EigenLayer.
 
 ## Oficjalna Dokumentacja
 
@@ -16,7 +14,7 @@ Te instrukcje wymagają pewien poziom umiejętności obsługi komputera za pomoc
 - konfiguracja serwera - potrzebne dane do logowania ssh (w przypadku pominięcia pierwszego punktu)
 - instalacja i rejestracja operatora - potrzebne dane do uzupełniania pliku `metadata.json`
 
-Jeśli jesteś zainteresowany/a postawieniem tego noda za Ciebie to zapraszam do kontaktu: 
+Jeśli jesteś zainteresowany/a zrobieniem tego za Ciebie to zapraszam do kontaktu: 
 - telegram: **@misiurr**
   
 # INSTRUKCJE
@@ -26,7 +24,7 @@ Jeśli jesteś zainteresowany/a postawieniem tego noda za Ciebie to zapraszam do
 ### Konfiguracja Serwera
 
 1. Potrzebujemy serwera do uruchomienia noda. VPS od [Contabo](https://contabo.com/en/vps/) będzie odpowiedni.
-   - Zalecany wybór to **CLOUD VPS 2** z **400 GB/SDD** dla Storage Type oraz **Ubuntu 20.04** jako Image.
+   - Zalecany wybór to **CLOUD VPS 2** z **400 GB/SDD** dla Storage Type oraz **Ubuntu 20.04 z DOCKER** jako Image. *Dla samego operatora powinna wystarczyć niższa specyfikacja jak VPS, ale ja używam VPS 2 pod poźniejsze uruchomienie [AVS](https://github.com/Layr-Labs/eigenda-operator-setup/blob/master/holesky/README.md)*
 
 ### Przygotowanie Serwera
 
@@ -34,115 +32,104 @@ Jeśli jesteś zainteresowany/a postawieniem tego noda za Ciebie to zapraszam do
 
 2. Po zalogowaniu wykonaj aktualizację VPS:
 
-   ```bash
-   sudo apt-get update && sudo apt-get upgrade -y
-   ```
+```bash
+sudo apt-get update && sudo apt-get upgrade -y
+```
 
-3. Zainstaluj Docker:
+3. Zainstaluj Docker-Compose:
 
-   ```bash
-   sudo apt install docker.io
-   ```
+```bash
+sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
 
-   - Sprawdź wersję, aby upewnić się, że instalacja przebiegła pomyślnie:
-
-     ```bash
-     docker --version
-     ```
-   ![Alt text](images/1.png)
-
-    
-4. Zainstaluj Docker-Compose:
-
-   ```bash
-   sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-   sudo chmod +x /usr/local/bin/docker-compose
-
-   docker-compose --version
-   ```
-   ![Alt text](images/2.png)
+docker-compose --version
+```
+   ![Alt text](imagesh/2.png)
 
 
 5. Zainstaluj GO:
 
    - Pobierz:
 
-     ```bash
-     wget https://golang.org/dl/go1.21.4.linux-amd64.tar.gz
-     ```
+```bash
+wget https://golang.org/dl/go1.22.1.linux-amd64.tar.gz
+```
 
    - Rozpakuj:
 
-     ```bash
-     tar -C /usr/local -xzf go1.21.4.linux-amd64.tar.gz
-     ```
+```bash
+tar -C /usr/local -xzf go1.22.1.linux-amd64.tar.gz
+```
 
    - Dodaj do środowiska:
 
-     ```bash
-     export PATH=$PATH:/usr/local/go/bin
-     ```
+```bash
+export PATH=$PATH:/usr/local/go/bin
+```
 
    - Sprawdź wersję:
 
-     ```bash
-     go version
-     ```
-   ![Alt text](images/3.png)
+```bash
+go version
+```
+   ![Alt text](imagesh/3.png)
 
 ## Instalacja EigenLayer CLI
 
 1. Klonuj repozytorium i zbuduj projekt:
 
-   ```bash
-   git clone https://github.com/Layr-Labs/eigenlayer-cli.git
-   cd eigenlayer-cli
-   mkdir -p build
-   go build -o build/eigenlayer cmd/eigenlayer/main.go
-   ```
+```bash
+git clone https://github.com/Layr-Labs/eigenlayer-cli.git
+cd eigenlayer-cli
+mkdir -p build
+go build -o build/eigenlayer cmd/eigenlayer/main.go
+```
    ![Alt text](images/4.png)
 
 
 2. Skopiuj plik do systemu:
 
-   ```bash
-   cp ./build/eigenlayer /usr/local/bin/
-   ```
+```bash
+cp ./build/eigenlayer /usr/local/bin/
+```
 
    - Sprawdź, czy komenda `eigenlayer` działa:
 
-     ```bash
-     eigenlayer
-     ```
-   ![Alt text](images/5.png)
+```bash
+eigenlayer
+```
+   ![Alt text](imagesh/5.png)
    
 ## Generowanie Kluczy
 
 1. Generuj klucze prywatne ECDSA i BLS za pomocą CLI. Zapisz je w bezpiecznym miejscu. `<YOUR_NAME>` zastąp wybraną nazwą.
 
-   ```bash
-   eigenlayer operator keys create --key-type ecdsa <YOUR_NAME>
-   eigenlayer operator keys create --key-type bls <YOUR_NAME>
-   ```
-   ![Alt text](images/6.png)
+```bash
+eigenlayer operator keys create --key-type ecdsa <YOUR_NAME>
+```
+
+
+```bash
+eigenlayer operator keys create --key-type bls <YOUR_NAME>
+```
+   ![Alt text](imagesh/6.png)
 
    - Aby sprawdzić klucze publiczne:
 
-     ```bash
-     eigenlayer operator keys list
-     ```
+```bash
+eigenlayer operator keys list
+```
 
 ## Konfiguracja Plików
 
 1. Wygeneruj i edytuj pliki konfiguracyjne:
-
-   ```bash
-   eigenlayer operator config create
-   ```
+```bash
+eigenlayer operator config create
+```
 
    - Jeśli wybierzesz opcję `yes`, Eigen zapyta o kilka danych do wstępnej konfiguracji.
 
-2. Opublikuj plik `metadata.json`, aby zapewnić jego dostęp dla EigenLayer. Możesz wykorzystać GitHubi - utwórz nowe repozytorium (koniecznie publiczne) i stwórz w nim plik `metadata.json`. Są też inne opcje dohostingu jak np. Pastebin. Poniższy schemat uzupełniij swoimi danymi:
+2. Opublikuj plik `metadata.json`, aby zapewnić jego dostęp dla EigenLayer. Możesz wykorzystać GitHub - utwórz nowe repozytorium (koniecznie publiczne) i stwórz w nim plik `metadata.json`. Są też inne opcje dohostingu jak np. Pastebin. Poniższy schemat uzupełniij swoimi danymi:
 
    ```json
    {
@@ -156,10 +143,9 @@ Jeśli jesteś zainteresowany/a postawieniem tego noda za Ciebie to zapraszam do
 
 3. Edytuj plik `operator.yaml`, wklejając RAW URL do Twojego pliku `metadata.json` i uzupełniając pozostałe dane:
 
-   ```bash
-    nano operator.yaml
-
-   ```
+```bash
+nano operator.yaml
+```
 
 
    ```yaml
@@ -169,34 +155,32 @@ Jeśli jesteś zainteresowany/a postawieniem tego noda za Ciebie to zapraszam do
      delegation_approver_address: "0x0000000000000000000000000000000000000000"
      staker_opt_out_window_blocks: 0
      metadata_url: <YOUR_METADATA_URL>
-     el_delegation_manager_address: 0x1b7b8F6b258f95Cf9596EabB9aa18B62940Eb0a8
-     eth_rpc_url: https://rpc.ankr.com/eth_goerli
+     el_delegation_manager_address: 0xA44151489861Fe9e3055d95adC98FbD462B948e7
+     eth_rpc_url: https://ethereum-holesky-rpc.publicnode.com/
      private_key_store_path: /root/.eigenlayer/operator_keys/<WALLET_NAME>.ecdsa.key.json
      signer_type: local_keystore
-     chain_id: 5
+     chain_id: 17000
    ```
-
+   
 po edycji naciskamy CRTL+X, następnie Y, a na koniec ENTER
 
 ## Rejestracja Operatora
 
-1. Przed rejestracją, upewnij się, że masz tokeny Goerli ETH do opłacenia gas. Można je zdobyć na [faucet Alchemy](https://www.alchemy.com/faucets/ethereum-goerli).
+1. Przed rejestracją, przelej co najmniej 1 Holesky ETH na "adress" z operator.yaml. Możesz je zdobyć na - [Holešky PoW Faucet](https://holesky-faucet.pk910.de/).
 
-2. Zarejestruj operatora:
+3. Zarejestruj operatora:
 
-   ```bash
-   eigenlayer operator register operator.yaml
-   ```
+```bash
+eigenlayer operator register operator.yaml
+```
 
 3. Sprawdź status:
 
-   ```bash
-   eigenlayer operator status operator.yaml
-   ```
+```bash
+eigenlayer operator status operator.yaml
+```
 
-   ![Alt text](images/7.png)
+   ![Alt text](imagesh/7.png)
 
-   Status można również sprawdzić na stronie [Goerli EigenLayer Operator](https://goerli.eigenlayer.xyz/operator).
-
-
+   Status można również sprawdzić na stronie [Holesky EigenLayer Operator](https://holesky.eigenlayer.xyz/operator). *(może potrwać parę minut, zanim pojawi się na stronie)*
 
