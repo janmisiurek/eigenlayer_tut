@@ -166,7 +166,7 @@ po edycji naciskamy CRTL+X, następnie Y, a na koniec ENTER
 
 ## Rejestracja Operatora
 
-1. Przed rejestracją, przelej co najmniej 1 Holesky ETH na "adress" z operator.yaml. Możesz je zdobyć na - [Holešky PoW Faucet](https://holesky-faucet.pk910.de/).
+1. Przed rejestracją, przelej co najmniej 1 Holesky ETH na "address" z operator.yaml. Możesz je zdobyć na - [Holešky PoW Faucet](https://holesky-faucet.pk910.de/).
 
 3. Zarejestruj operatora:
 
