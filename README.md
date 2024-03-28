@@ -24,7 +24,7 @@ Jeśli jesteś zainteresowany/a zrobieniem tego za Ciebie to zapraszam do kontak
 ### Konfiguracja Serwera
 
 1. Potrzebujemy serwera z linuxem aby uruchomić operatora. VPS od [Contabo](https://contabo.com/en/vps/) będzie odpowiedni.
-   - Mój wybór to **CLOUD VPS 2** z **400 GB/SDD** dla Storage Type oraz **Ubuntu 20.04 z DOCKER** jako Image. *Dla samego operatora powinna wystarczyć niższa specyfikacja jak VPS, ale ja używam VPS 2 pod poźniejsze uruchomienie [AVS](https://github.com/Layr-Labs/eigenda-operator-setup/blob/master/holesky/README.md)*
+   - Mój wybór to **CLOUD VPS 2** z **400 GB/SDD** dla Storage Type oraz **Ubuntu 20.04 z DOCKER** jako Image. *Dla samego operatora powinna wystarczyć niższa specyfikacja niż VPS, ale ja używam VPS 2, ponieważ planuję późniejsze uruchomienie [AVS](https://github.com/Layr-Labs/eigenda-operator-setup/blob/master/holesky/README.md)*
 
 ### Przygotowanie Serwera
 
