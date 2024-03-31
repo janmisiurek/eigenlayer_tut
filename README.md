@@ -155,11 +155,11 @@ nano operator.yaml
      delegation_approver_address: "0x0000000000000000000000000000000000000000"
      staker_opt_out_window_blocks: 0
      metadata_url: <YOUR_METADATA_URL>
-     el_delegation_manager_address: 0xA44151489861Fe9e3055d95adC98FbD462B948e7
-     eth_rpc_url: https://ethereum-holesky-rpc.publicnode.com/
-     private_key_store_path: /root/.eigenlayer/operator_keys/<WALLET_NAME>.ecdsa.key.json
-     signer_type: local_keystore
-     chain_id: 17000
+el_delegation_manager_address: 0xA44151489861Fe9e3055d95adC98FbD462B948e7
+eth_rpc_url: https://ethereum-holesky-rpc.publicnode.com/
+private_key_store_path: /root/.eigenlayer/operator_keys/<WALLET_NAME>.ecdsa.key.json
+signer_type: local_keystore
+chain_id: 17000
    ```
    
 po edycji naciskamy CRTL+X, następnie Y, a na koniec ENTER
